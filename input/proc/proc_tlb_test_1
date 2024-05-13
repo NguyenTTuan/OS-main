@@ -1,6 +1,9 @@
-12 5
+1 8
 alloc 255 0
 write 100 0 20
 read 0 20 0
 read 0 20 0
 read 0 20 0
+alloc 128 1
+write 99 1 8
+read 1 8 0
