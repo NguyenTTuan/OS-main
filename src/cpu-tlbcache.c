@@ -108,7 +108,7 @@ int tlb_cache_read(struct memphy_struct * mp, int pid, int pgnum, int *value)
       if(get_pid(mp->storage, index) == pid) {
          // HIT
          *value = get_frame_num(mp->storage, index);
-         printf("Frame number: %d\n", *value);
+         // printf("Frame number: %d\n", *value);
          return 0;
       }
       else {
@@ -143,7 +143,7 @@ int tlb_cache_write(struct memphy_struct *mp, int pid, int pgnum, int value)
    unsigned int validBit = get_valid_bit(mp->storage, index);
    unsigned int getPID = get_pid(mp->storage, index);
    unsigned int getFrameNum = get_frame_num(mp->storage, index);
-   printf("Data in Cache: validBit %i -- getPID: %i -- getFrameNum: %i\n", validBit, getPID, getFrameNum);
+   // printf("Data in Cache: validBit %i -- getPID: %i -- getFrameNum: %i\n", validBit, getPID, getFrameNum);
 
    if(validBit) {
       if(getPID == pid) {

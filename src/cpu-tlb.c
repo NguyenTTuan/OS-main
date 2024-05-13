@@ -90,7 +90,7 @@ int tlbread(struct pcb_t * proc, uint32_t source,
 
   addr_t address = currg->rg_start + offset;
 
-  printf("Address: %u\n", address);
+  // printf("Address: %u\n", address);
 
   if(address >= currg->rg_end) {
     printf("Invalid destination\n");
@@ -155,7 +155,7 @@ int tlbwrite(struct pcb_t * proc, BYTE data,
 
   addr_t address = currg->rg_start + offset;
 
-  printf("Address: %u\n", address);
+  // printf("Address: %u\n", address);
 
   if(address >= currg->rg_end) {
     printf("Invalid destination\n");
@@ -169,7 +169,7 @@ int tlbwrite(struct pcb_t * proc, BYTE data,
   /* frmnum is return value of tlb_cache_read/write value */
 
   val = tlb_cache_read(proc->tlb, proc->pid, pgnum, &frmnum);
-  printf("Frame num: %d\n", frmnum);
+  // printf("Frame num: %d\n", frmnum);
   if(val < 0) return -1;
   
 #ifdef IODUMP
