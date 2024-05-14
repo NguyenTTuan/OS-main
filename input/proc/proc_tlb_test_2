@@ -4,4 +4,4 @@ read 0 0 0
 write 50 0 0
 write 100 0 4
 write 200 0 20
-read 0 4 100
+read 0 4 0
