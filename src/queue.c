@@ -32,6 +32,7 @@ void enqueue(struct queue_t *q, struct pcb_t *proc)
       return;
     }
   }
+  
   // If the new process has lower priority than all existing processes, insert it at the end
   q->proc[q->size] = proc;
   q->size++;
