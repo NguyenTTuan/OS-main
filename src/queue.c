@@ -14,7 +14,8 @@ void enqueue(struct queue_t *q, struct pcb_t *proc)
 if (proc == NULL) return;
 if (q -> size == MAX_QUEUE_SIZE) return;
 #ifdef MLQ_SCHED
-  // Push the new process to the end of the queue
+  // Push the new process to the end of the queue 
+  //(because in a MLQ queue all processes have the same priority so that we do not need to compare the prio of 2 processes)
   q->proc[q->size] = proc;
   q->size++;
 #else
