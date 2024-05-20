@@ -139,8 +139,14 @@ static void * ld_routine(void * args) {
 		proc->tlb = tlb;
 		#endif
 #endif
+#ifdef MLQ_SCHED
 		printf("\tLoaded a process at %s, PID: %d PRIO: %ld\n",
-			ld_processes.path[i], proc->pid, ld_processes.prio[i]);
+			ld_processes.path[i], proc->pid, ld_processes.prio[i]
+		);
+#else
+		printf("\tLoaded a process at %s, PID: %d\n",
+			ld_processes.path[i], proc->pid);
+#endif
 		add_proc(proc);
 		free(ld_processes.path[i]);
 		i++;
