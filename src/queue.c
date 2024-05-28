@@ -11,9 +11,15 @@ int empty(struct queue_t *q)
 
 void enqueue(struct queue_t *q, struct pcb_t *proc)
 {
+if (proc == NULL) return;
+if (q -> size == MAX_QUEUE_SIZE) return;
+#ifdef MLQ_SCHED
+  // Push the new process to the end of the queue 
+  //(because in a MLQ queue all processes have the same priority so that we do not need to compare the prio of 2 processes)
+  q->proc[q->size] = proc;
+  q->size++;
+#else
   /* TODO: put a new process to queue [q] */
-  if (proc == NULL) return;
-  if (q -> size == MAX_QUEUE_SIZE) return;
   int i;
   // Find the correct position to insert the new process based on its priority
   for (i = 0; i < q->size; i++)
@@ -36,6 +42,7 @@ void enqueue(struct queue_t *q, struct pcb_t *proc)
   // If the new process has lower priority than all existing processes, insert it at the end
   q->proc[q->size] = proc;
   q->size++;
+#endif
 }
 
 struct pcb_t *dequeue(struct queue_t *q)
